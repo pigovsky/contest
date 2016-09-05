@@ -6,9 +6,7 @@
 
         pigovsky/
             EASY/
-        
                 Onboarding/ 
-    
                 Power of Thor/
         
 
