@@ -11,6 +11,6 @@
         
 
 4. Створіть в папці EASY/Onboarding файлик з розв’язком задачі https://www.codingame.com/training/easy/onboarding на будь-якій мові програмування.
-5. Створіть в папці EASY/Power of Thor/ файлик з розв’язком задачіhttps://www.codingame.com/training/easy/power-of-thor-episode-1 .
+5. Створіть в папці EASY/Power of Thor/ файлик з розв’язком задачі https://www.codingame.com/training/easy/power-of-thor-episode-1 .
 6. Закомітьте зміни.
 7. Зробіть merge-request з вашими змінами на цей проект.
