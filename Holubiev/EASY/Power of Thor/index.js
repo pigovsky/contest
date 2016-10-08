@@ -15,20 +15,45 @@ while (true) {
   // To debug: printErr('Debug messages...');
 
   var thorToLightOffset = getThorToLightOffset();
-  var move = getMove(thorToLightOffset);
+  var move = calcMove(thorToLightOffset);
 
   adjustThorPosition(thorToLightOffset);
   print(move);
 }
 
+/**
+ * Adjust position of Thor base on his offset to light
+ * @param {Object} thorToLightOffset
+ * @param {Number} thorToLightOffset.x
+ * @param {Number} thorToLightOffset.y
+ */
 function adjustThorPosition(thorToLightOffset) {
+  adjustThorPositionX(thorToLightOffset);
+  adjustThorPositionY(thorToLightOffset);
+}
+
+/**
+ * Adjust position of Thor on X axis base on his offset to light
+ * @param {Object} thorToLightOffset
+ * @param {Number} thorToLightOffset.x
+ * @param {Number} thorToLightOffset.y
+ */
+function adjustThorPositionX(thorToLightOffset) {
   if (thorToLightOffset.x > 0) {
     thorPosition.x -= 1;
   }
   if (thorToLightOffset.x < 0) {
     thorPosition.x += 1;
   }
+}
 
+/**
+ * Adjust position of Thor on Y axis base on his offset to light
+ * @param {Object} thorToLightOffset
+ * @param {Number} thorToLightOffset.x
+ * @param {Number} thorToLightOffset.y
+ */
+function adjustThorPositionY(thorToLightOffset) {
   if (thorToLightOffset.y > 0) {
     thorPosition.y -= 1;
   }
@@ -38,6 +63,10 @@ function adjustThorPosition(thorToLightOffset) {
   }
 }
 
+/**
+ * Get Thor offset to light source
+ * @return {{x: Number, y: Number}}
+ */
 function getThorToLightOffset() {
   return {
     x: thorPosition.x - lightPosition.x,
@@ -45,11 +74,25 @@ function getThorToLightOffset() {
   }
 }
 
-function getMove(thorToLightOffset) {
-  return getYMove(thorToLightOffset) + getXMove(thorToLightOffset);
+/**
+ * Calculate Thor move base on his offset to light
+ * @param {Object} thorToLightOffset
+ * @param {Number} thorToLightOffset.x
+ * @param {Number} thorToLightOffset.y
+ * @return {String} Thor move in format [N|S|E|W|NE|SE|SW|NW]
+ */
+function calcMove(thorToLightOffset) {
+  return calcMoveY(thorToLightOffset) + calcMoveX(thorToLightOffset);
 }
 
-function getYMove(thorToLightOffset) {
+/**
+ * Calculate Thor move on Y axis
+ * @param {Object} thorToLightOffset
+ * @param {Number} thorToLightOffset.x
+ * @param {Number} thorToLightOffset.y
+ * @return {String} Thor move on Y axis in format [S|N]
+ */
+function calcMoveY(thorToLightOffset) {
   var move = '';
 
   var thorIsHigher = thorToLightOffset.y < 0;
@@ -65,7 +108,14 @@ function getYMove(thorToLightOffset) {
   return move;
 }
 
-function getXMove(thorToLightOffset) {
+/**
+ * Calculate Thor move on X axis
+ * @param {Object} thorToLightOffset
+ * @param {Number} thorToLightOffset.x
+ * @param {Number} thorToLightOffset.y
+ * @return {String} Thor move on X axis in format [E|W]
+ */
+function calcMoveX(thorToLightOffset) {
   var move = '';
 
   var thorIsLeftOf = thorToLightOffset.x < 0;
