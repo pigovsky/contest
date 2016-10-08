@@ -93,19 +93,17 @@ function calcMove(thorToLightOffset) {
  * @return {String} Thor move on Y axis in format [S|N]
  */
 function calcMoveY(thorToLightOffset) {
-  var move = '';
-
   var thorIsHigher = thorToLightOffset.y < 0;
   if (thorIsHigher) {
-    move += 'S';
+    return 'S';
   }
 
   var thorIsLower = thorToLightOffset.y > 0;
   if (thorIsLower) {
-    move += 'N';
+    return 'N';
   }
 
-  return move;
+  return '';
 }
 
 /**
@@ -116,17 +114,15 @@ function calcMoveY(thorToLightOffset) {
  * @return {String} Thor move on X axis in format [E|W]
  */
 function calcMoveX(thorToLightOffset) {
-  var move = '';
-
   var thorIsLeftOf = thorToLightOffset.x < 0;
   if (thorIsLeftOf) {
-    move += 'E';
+    return 'E';
   }
 
   var thorIsRightOf = thorToLightOffset.x > 0;
   if (thorIsRightOf) {
-    move += 'W';
+    return 'W';
   }
 
-  return move;
+  return '';
 }
