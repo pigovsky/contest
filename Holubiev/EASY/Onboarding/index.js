@@ -1,12 +1,16 @@
 while (true) {
-  var enemy1Name = readline();
-  var enemy1Distance = parseInt(readline());
-  var enemy2Name = readline();
-  var enemy2Distance = parseInt(readline());
+  var enemy1 = {
+    name: readline(),
+    distance: parseInt(readline(), 10)
+  };
+  var enemy2 = {
+    name: readline(),
+    distance: parseInt(readline(), 10)
+  };
 
-  if (enemy1Distance < enemy2Distance) {
-    print(enemy1Name);
+  if (enemy1.distance < enemy2.distance) {
+    print(enemy1.name);
   } else {
-    print(enemy2Name);
+    print(enemy2.name);
   }
 }
