@@ -8,4 +8,3 @@ while 1:
         print(enemy_1)
     else:
         print(enemy_2)
-    # Enter the code here
