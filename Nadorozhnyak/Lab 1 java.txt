@@ -1,0 +1,2 @@
+git@github.com:SheggyN/Lab1-Java-Worker.git
+https://github.com/SheggyN/Lab1-Java-Worker.git
